@@ -48,17 +48,17 @@ class join_shop : AppCompatActivity() {
 
             when {
                 !id.isEmpty() ->
-                    Toast.makeText(this, "아이디 오류 회원 가입 실패", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "아이디 오류", Toast.LENGTH_SHORT).show()
                 !pw.isEmpty() ->
-                    Toast.makeText(this, "아이디 오류 회원 가입 실패", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "비밀번호 오류", Toast.LENGTH_SHORT).show()
                 !pw_re.isEmpty() ->
-                    Toast.makeText(this, "아이디 오류 회원 가입 실패", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "비밀번호 확인 오류", Toast.LENGTH_SHORT).show()
                 pw !== pw_re ->
-                    Toast.makeText(this, "아이디 오류 회원 가입 실패", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "비밀번호가 같지 않습니다", Toast.LENGTH_SHORT).show()
                 !num.isEmpty() ->
-                    Toast.makeText(this, "아이디 오류 회원 가입 실패", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "생년월일이 맞지 않습니다", Toast.LENGTH_SHORT).show()
                 !phone_num.isEmpty() ->
-                    Toast.makeText(this, "아이디 오류 회원 가입 실패", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "전화번호가 맞지 않습니다", Toast.LENGTH_SHORT).show()
                 !resident.isEmpty() ->
                     Toast.makeText(this, "아이디 오류 회원 가입 실패", Toast.LENGTH_SHORT).show()
                 !resident2.isEmpty() ->

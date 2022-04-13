@@ -16,25 +16,39 @@
         android:theme="@style/Theme.GpsKMap"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".login_shop"
+            android:exported="true" />
+        <activity
+            android:name=".dialog"
+            android:exported="true" />
+        <activity
+            android:name=".login"
+            android:exported="true"
+            > <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+        </activity>
+        <activity
+            android:name=   ".ui.login.LoginActivity"
+            android:exported="true"
+            android:label="@string/title_activity_login" />
+        <activity
             android:name=".join_shop"
             android:exported="true" />
         <activity
             android:name=".join"
             android:exported="true" />
-        <activity
-            android:name=".login"
-            android:exported="true" />
 
         <meta-data
             android:name="com.kakao.sdk.AppKey"
-            android:value="98c59b46a80107250e6bcab84ca06841" />
+            android:value=" " />
 
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

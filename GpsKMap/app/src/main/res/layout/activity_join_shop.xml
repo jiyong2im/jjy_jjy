@@ -46,7 +46,7 @@
         android:inputType="textPassword"
         android:maxLength="15"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="362dp" />
+        tools:layout_editor_absoluteY="338dp" />
 
     <EditText
         android:id="@+id/edit_Cid_shop"
