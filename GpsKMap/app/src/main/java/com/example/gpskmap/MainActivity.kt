@@ -64,6 +64,7 @@ class MainActivity : AppCompatActivity() {
         if (permissionCheck == PackageManager.PERMISSION_GRANTED) {
             try {
                 mapView.currentLocationTrackingMode = MapView.CurrentLocationTrackingMode.TrackingModeOnWithoutHeading
+
                 val lm: LocationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
                 val userNowLocation: Location = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)!!
                 val uLatitude = 37.4467912//userNowLocation.latitude
@@ -179,7 +180,7 @@ class MainActivity : AppCompatActivity() {
 //    val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
 //    return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
 //}
-/////////////////////////////////////
+/////////////////////////////////////여기 까지 원래 코드 였############################333333333333333333333
 }
 
 

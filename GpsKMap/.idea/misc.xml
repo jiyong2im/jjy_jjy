@@ -3,15 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/button_login_btn.xml" value="0.20592105263157895" />
+        <entry key="app/src/main/res/drawable/edittext_background.xml" value="0.14901315789473685" />
+        <entry key="app/src/main/res/drawable/edittext_login.xml" value="0.20592105263157895" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.11611842105263158" />
+        <entry key="app/src/main/res/drawable/layout_background.xml" value="0.20592105263157895" />
         <entry key="app/src/main/res/layout/activity_dialog.xml" value="0.1294398907103825" />
-        <entry key="app/src/main/res/layout/activity_join.xml" value="0.165" />
-        <entry key="app/src/main/res/layout/activity_join_shop.xml" value="0.30299800425130285" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_join.xml" value="0.2569524971153888" />
+        <entry key="app/src/main/res/layout/activity_join_shop.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.2707817149746361" />
         <entry key="app/src/main/res/layout/activity_login1.xml" value="0.125" />
         <entry key="app/src/main/res/layout/activity_login2.xml" value="0.1294398907103825" />
         <entry key="app/src/main/res/layout/activity_login_shop.xml" value="0.10119348388692104" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.13179347826086957" />
+        <entry key="app/src/main/res/layout/activity_main3.xml" value="0.15942028985507245" />
+        <entry key="app/src/main/res/layout/activity_test123.xml" value="0.11862990810359231" />
         <entry key="app/src/main/res/layout/alertdalog_id_find.xml" value="0.25" />
         <entry key="app/src/main/res/layout/alertdalog_id_find_2.xml" value="0.2119638261772362" />
       </map>

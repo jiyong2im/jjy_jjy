@@ -43,7 +43,7 @@ class login : AppCompatActivity() {
                 var edit5: EditText? = alert.findViewById<EditText>(R.id.edit_text_phone3)
 
                 //임시 아이디 값 불러와서 띄우기 login 에
-                test.text = "${edit1?.text}"
+                    //  test.text = "${edit1?.text}"
 
             }
 

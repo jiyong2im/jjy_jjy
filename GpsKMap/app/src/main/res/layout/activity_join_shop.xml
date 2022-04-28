@@ -4,230 +4,265 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#e7e8ea  "
     tools:context=".join">
 
-    <Button
-        android:id="@+id/btn_user_shop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="117dp"
-        android:text="일반가입"
-        app:layout_constraintEnd_toStartOf="@+id/button3"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="26dp" />
 
     <Button
-        android:id="@+id/btn_owner_shop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="점주 가입"
-        tools:layout_editor_absoluteX="206dp"
-        tools:layout_editor_absoluteY="26dp" />
-
-    <EditText
-        android:id="@+id/edit_name_shop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:ems="10"
-        android:hint="jjy"
-        android:inputType="textPersonName"
-        android:maxLength="15"
+        android:id="@+id/btn_join"
+        android:layout_width="220dp"
+        android:layout_height="60dp"
+        android:backgroundTint="#f86d4a "
+        android:fontFamily="@font/BMHANNA_11yrs_otf"
+        android:text="가입하기"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="99dp" />
+        tools:layout_editor_absoluteY="733dp" />
 
-    <EditText
-        android:id="@+id/edit_Cpw_re_shop"
+    <Button
+        android:id="@+id/btn_Confirm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:ems="10"
-        android:hint="**********"
-        android:inputType="textPassword"
-        android:maxLength="15"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="338dp" />
-
-    <EditText
-        android:id="@+id/edit_Cid_shop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:maxLength="15"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="186dp" />
-
-    <EditText
-        android:id="@+id/edit_Cpw_shop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:ems="10"
-        android:hint="**********"
-        android:inputType="textPassword"
-        android:maxLength="15"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="268dp" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="이름"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="71dp" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="비밀번호"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="244dp" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="비밀번호 확인"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.467" />
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="48dp"
+        android:backgroundTint="#f86d4a "
+        android:fontFamily="@font/BMHANNA_11yrs_otf"
+        android:text="인증하기"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/edit_phone" />
 
     <Button
         android:id="@+id/btn_overlap"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="중복체"
-        tools:layout_editor_absoluteX="242dp"
-        tools:layout_editor_absoluteY="180dp" />
+        android:layout_width="96dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="148dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#f86d4a "
+        android:fontFamily="@font/BMHANNA_11yrs_otf"
+        android:rotationY="0"
+        android:text="중복체크"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="아이디"
+    <Button
+        android:id="@+id/btn_user"
+        android:layout_width="125dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="44dp"
+        android:backgroundTint="#cccccc"
+        android:fontFamily="@font/BMHANNA_11yrs_otf"
+        android:text="일반가입"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="158dp" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_owner"
+        android:layout_width="125dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="64dp"
+        android:backgroundTint="#f86d4a  "
+        android:fontFamily="@font/BMHANNA_11yrs_otf"
+        android:text="점주 가입"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/edit_phone_shop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:id="@+id/edit_join_id"
+        android:layout_width="230dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="152dp"
+        android:background="@drawable/edittext_background"
+        android:backgroundTint="#ffffff"
         android:ems="10"
-        android:hint="123-4567-9393"
+        android:fontFamily="@font/BMHANNAAir_otf"
+        android:hint="  jjy"
+        android:inputType="textPersonName"
+        android:maxLength="15"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edit_Cid"
+        android:layout_width="310dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="384dp"
+        android:background="@drawable/edittext_background"
+        android:backgroundTint="#ffffff"
+        android:ems="10"
+        android:fontFamily="@font/BMHANNAAir_otf"
+        android:hint="  이름"
+        android:inputType="textPersonName"
+        android:maxLength="15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/edit_resident"
+        android:layout_width="310dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="461dp"
+        android:background="@drawable/edittext_background"
+        android:backgroundTint="#ffffff"
+        android:ems="10"
+        android:fontFamily="@font/BMHANNAAir_otf"
+        android:hint="  980610"
+        android:inputType="textPersonName"
+        android:maxLength="6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/edit_resident"
+        android:layout_width="310dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="536dp"
+        android:background="@drawable/edittext_background"
+        android:backgroundTint="#ffffff"
+        android:ems="10"
+        android:fontFamily="@font/BMHANNAAir_otf"
+        android:hint="사업자등록번"
+        android:inputType="textPersonName"
+        android:maxLength="12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edit_text_pw"
+        android:layout_width="310dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="224dp"
+        android:background="@drawable/edittext_background"
+        android:backgroundTint="#ffffff"
+        android:ems="10"
+        android:fontFamily="@font/BMHANNAAir_otf"
+        android:hint="  **********"
+        android:inputType="textPassword"
+        android:maxLength="15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edit_pw_re"
+        android:layout_width="310dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="307dp"
+        android:background="@drawable/edittext_background"
+        android:backgroundTint="#ffffff"
+        android:ems="10"
+        android:hint="  **********"
+        android:inputType="textPassword"
+        android:maxLength="15"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/edit_phone"
+        android:layout_width="310dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="612dp"
+        android:background="@drawable/edittext_background"
+        android:backgroundTint="#ffffff"
+        android:ems="10"
+        android:fontFamily="@font/BMHANNAAir_otf"
+        android:hint="  123-4567-9393"
         android:inputType="phone"
         android:maxLength="14"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="525dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="-"
-        tools:layout_editor_absoluteX="118dp"
-        tools:layout_editor_absoluteY="611dp" />
-
-    <EditText
-        android:id="@+id/edit_resident2_shop"
-        android:layout_width="89dp"
-        android:layout_height="49dp"
-        android:ems="10"
-        android:hint="123456"
-        android:inputType="textPersonName"
-        android:maxLength="6"
-        tools:layout_editor_absoluteX="126dp"
-        tools:layout_editor_absoluteY="596dp" />
-
-    <Button
-        android:id="@+id/btn_Confirm_shop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="인증하기"
-        tools:layout_editor_absoluteX="242dp"
-        tools:layout_editor_absoluteY="522dp" />
+        android:fontFamily="@font/BMHANNA_11yrs_otf"
+        android:text="아이디"
+        tools:layout_editor_absoluteX="26dp"
+        tools:layout_editor_absoluteY="124dp" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:fontFamily="@font/BMHANNA_11yrs_otf"
+        android:text="비밀번호"
+        tools:layout_editor_absoluteX="26dp"
+        tools:layout_editor_absoluteY="201dp" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/BMHANNA_11yrs_otf"
+        android:text="비밀번호 확인"
+        tools:layout_editor_absoluteX="26dp"
+        tools:layout_editor_absoluteY="283dp" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/BMHANNA_11yrs_otf"
+        android:text="이름"
+        tools:layout_editor_absoluteX="26dp"
+        tools:layout_editor_absoluteY="360dp" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/BMHANNA_11yrs_otf"
         android:text="주민등록번호"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="572dp" />
-
-    <EditText
-        android:id="@+id/edit_resident_shop"
-        android:layout_width="99dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="16dp"
-        android:ems="10"
-        android:hint="980610"
-        android:inputType="textPersonName"
-        android:maxLength="6"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="601dp" />
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="434dp" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/textView20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="전화번호"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="497dp" />
-
-    <CheckBox
-        android:id="@+id/checkBox_shop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="이용약관 보기"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="640dp" />
-
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="282dp"
-        tools:layout_editor_absoluteY="618dp" />
-
-    <Button
-        android:id="@+id/btn_join_shop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="가입"
-        tools:layout_editor_absoluteX="151dp"
-        tools:layout_editor_absoluteY="675dp" />
-
-    <EditText
-        android:id="@+id/edit_bus_num"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:ems="10"
-        android:hint="사업자번호"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="438dp" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:fontFamily="@font/BMHANNA_11yrs_otf"
         android:text="사업자등록번호"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="412dp" />
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="512dp" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="9dp"
+        android:fontFamily="@font/BMHANNA_11yrs_otf"
+        android:text="휴대전화"
+        app:layout_constraintBottom_toTopOf="@+id/edit_phone"
+        tools:layout_editor_absoluteX="25dp" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="210dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/edittext_background"
+        android:backgroundTint="#ffffff"
+        android:ems="10"
+        android:fontFamily="@font/BMHANNAAir_otf"
+        android:hint="  인증번호"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/edit_phone"
+        tools:layout_editor_absoluteX="24dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
