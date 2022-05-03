@@ -8,24 +8,26 @@ import android.os.Bundle
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import com.example.gpskmap.databinding.ActivityLoginBinding
+import com.example.gpskmap.databinding.ActivityLoginShopBinding
 import com.example.gpskmap.databinding.ActivityMainBinding
-import kotlinx.android.synthetic.main.activity_login.*
 
 
 class login : AppCompatActivity() {
+    private lateinit var binding: ActivityLoginBinding
     var pro: ProgressDialog? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        setContentView(R.layout.activity_login)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        //setContentView(R.layout.activity_login)
 
         // edittext 받아오기
-        val id = edit_id.text.toString()
-        val pw = edit_pw.text.toString()
+        val id = binding.editId.text.toString()
+        val pw = binding.editPw.text.toString()
 
 
 // 아이디 찾기 다이얼로그
-        text_id_find.setOnClickListener {
+        binding.textIdFind.setOnClickListener {
             var builder = AlertDialog.Builder(this)
             builder.setTitle("커스텀 다이얼로그")
             builder.setIcon(R.mipmap.ic_launcher)
@@ -100,14 +102,14 @@ class login : AppCompatActivity() {
 
 
         //사장님 로그인 전환
-        btn_shop_login.setOnClickListener {
+        binding.btnShopLogin.setOnClickListener {
             val intent = Intent(this, login_shop::class.java)
             startActivity(intent)
         }
 
 
         // 로그인
-        btn_login.setOnClickListener {
+        binding.btnLogin.setOnClickListener {
 
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)

@@ -15,13 +15,13 @@ import android.util.Log
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import kotlinx.android.synthetic.main.activity_main.*
 
 import android.graphics.Color
 import android.net.Uri
 import android.provider.Settings
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat.getSystemService
+import com.example.gpskmap.databinding.ActivityMainBinding
 import net.daum.mf.map.api.*
 
 ////8
@@ -32,16 +32,24 @@ import net.daum.mf.map.api.*
 class MainActivity : AppCompatActivity() {
     private val ACCESS_FINE_LOCATION = 1000
 
-    //    private lateinit var binding: ActivityMainBinding
+     private lateinit var binding: ActivityMainBinding
     val PERMISSIONS_REQUEST_CODE = 100
     var REQUIRED_PERMISSIONS = arrayOf<String>(Manifest.permission.ACCESS_FINE_LOCATION)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater);
+        setContentView(binding.root)
+//        val mapView = MapView(this)
+//        binding.clKakaoMapView.addView(mapView)
+
+        //setContentView(R.layout.activity_main)
         val mapView = MapView(this)
-        val mapViewContainer = map_view
+        val mapViewContainer = binding.mapView
         mapViewContainer.addView(mapView)
+//        val mapView = MapView(this)
+//        val mapViewContainer = map_view
+//        mapViewContainer.addView(mapView)
 //
 //
 //        if (checkLocationService()) {

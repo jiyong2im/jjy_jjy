@@ -4,13 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".test123">
+    tools:context=".terms_check">
 
-    <Button
-        android:id="@+id/button21"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="파싱데이터로이동"
-        tools:layout_editor_absoluteX="101dp"
-        tools:layout_editor_absoluteY="135dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

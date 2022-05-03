@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import com.example.gpskmap.databinding.ActivityJoinShopBinding
 import kotlinx.android.synthetic.main.activity_join.*
 import kotlinx.android.synthetic.main.activity_join.edit_Cid
 import kotlinx.android.synthetic.main.activity_join_shop.*
@@ -17,12 +18,13 @@ import java.sql.DriverManager
 
 
 class join_shop : AppCompatActivity() {
+    private lateinit var binding: ActivityJoinShopBinding
     override fun onCreate(savedInstanceState: Bundle?) {
+        binding = ActivityJoinShopBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_join)
+        setContentView(binding.root)
 
-
-        btn_join_shop.setOnClickListener {
+        binding.btn_join_shop.setOnClickListener {
             Log.d(TAG, "회원가입 버튼 클릭")
             val id = edit_Cid_shop.text.toString()
             val pw = edit_Cpw_shop.text.toString()

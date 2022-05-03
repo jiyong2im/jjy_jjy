@@ -15,15 +15,9 @@
         android:theme="@style/Theme.GpsKMap"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".test123"
-            android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity>
-
-    <activity
+            android:name=".terms_check"
+            android:exported="false" />
+        <activity
             android:name=".login_shop"
             android:exported="true" /> <!-- <activity -->
         <!-- android:name=".dialog" -->
@@ -48,7 +42,11 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

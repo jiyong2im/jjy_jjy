@@ -9,24 +9,26 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_join.*
+import com.example.gpskmap.databinding.ActivityJoinBinding
 import java.sql.Connection
 import java.sql.DriverManager
 
 class join : AppCompatActivity() {
+    private lateinit var binding: ActivityJoinBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_join)
+        binding = ActivityJoinBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
 
-        btn_join.setOnClickListener {
+        binding.btnJoin.setOnClickListener {
             Log.d(TAG, "회원가입 버튼 클릭")
-            val id = edit_Cid.text.toString()
-            val pw = edit_Cpw.text.toString()
-            val pw_re = edit_pw_re.text.toString()
-            val phone_num = edit_phone.text.toString()
-            val resident = edit_resident.text.toString()
-            val resident2 = edit_resident2.text.toString()
+            val id = binding.editCid.text.toString()
+            val pw = binding.editCpw.text.toString()
+            val pw_re = binding.editPwRe.text.toString()
+            val phone_num = binding.editPhone.text.toString()
+            val resident = binding.editResident.text.toString()
+            val resident2 = binding.editResident2.text.toString()
 
 //        val dialog = AlertDialog.Builder(this)
 //
@@ -74,7 +76,7 @@ class join : AppCompatActivity() {
             }
         }
 
-        btn_owner.setOnClickListener {
+        binding.btnOwner.setOnClickListener {
             val intent = Intent(this, join_shop::class.java)
             startActivity(intent)
         }
