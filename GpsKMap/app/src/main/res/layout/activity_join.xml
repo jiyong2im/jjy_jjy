@@ -177,7 +177,7 @@
 
     <EditText
         android:id="@+id/edit_num"
-        android:layout_width="215dp"
+        android:layout_width="200dp"
         android:layout_height="64dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="656dp"
@@ -194,7 +194,7 @@
 
     <EditText
         android:id="@+id/edit_num2"
-        android:layout_width="186dp"
+        android:layout_width="200dp"
         android:layout_height="63dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="656dp"

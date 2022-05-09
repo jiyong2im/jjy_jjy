@@ -10,9 +10,9 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.example.gpskmap.databinding.ActivityJoinShopBinding
-import kotlinx.android.synthetic.main.activity_join.*
-import kotlinx.android.synthetic.main.activity_join.edit_Cid
-import kotlinx.android.synthetic.main.activity_join_shop.*
+//import kotlinx.android.synthetic.main.activity_join.*
+//import kotlinx.android.synthetic.main.activity_join.edit_Cid
+//import kotlinx.android.synthetic.main.activity_join_shop.*
 import java.sql.Connection
 import java.sql.DriverManager
 
@@ -24,16 +24,18 @@ class join_shop : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        binding.btn_join_shop.setOnClickListener {
+        binding.btnJoinShop.setOnClickListener {
             Log.d(TAG, "회원가입 버튼 클릭")
-            val id = edit_Cid_shop.text.toString()
-            val pw = edit_Cpw_shop.text.toString()
-            val pw_re = edit_Cpw_re_shop.text.toString()
-            val num = edit_bus_num.text.toString()
-            val phone_num = edit_phone_shop.text.toString()
-            val resident = edit_resident_shop.text.toString()
-            val resident2 = edit_resident2_shop.text.toString()
-
+            val id = binding.editJoinIdShop.text.toString()
+            val pw = binding.editTextPwShop.text.toString()
+            val pw_re = binding.editPwReShop.text.toString()
+            val name = binding.editCidShop.text.toString()
+            val num = binding.editNumShop.text.toString()
+            val num2 = binding.editNumShop2.text.toString()
+            val phone_num = binding.editPhoneShop.text.toString()
+            val resident = binding.editResidentShop.text.toString()
+            val resident2 = binding.editResidentShop.text.toString()
+            //인증번호 인증 로직 요먕 !! ! !!!
 //        val dialog = AlertDialog.Builder(this)
 //
 //        val listener = DialogInterface.OnClickListener{ _, p1 ->
@@ -82,7 +84,7 @@ class join_shop : AppCompatActivity() {
             }
         }
         // 사용자 회원가입
-        btn_user_shop.setOnClickListener {
+        binding.btnUserShop.setOnClickListener {
                 val intent = Intent(this, join::class.java)
                 startActivity(intent)
         }

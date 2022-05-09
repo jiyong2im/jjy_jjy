@@ -24,11 +24,11 @@ class join : AppCompatActivity() {
         binding.btnJoin.setOnClickListener {
             Log.d(TAG, "회원가입 버튼 클릭")
             val id = binding.editCid.text.toString()
-            val pw = binding.editCpw.text.toString()
+            val pw = binding.editTextPw.text.toString()
             val pw_re = binding.editPwRe.text.toString()
             val phone_num = binding.editPhone.text.toString()
-            val resident = binding.editResident.text.toString()
-            val resident2 = binding.editResident2.text.toString()
+            val resident = binding.editNum.text.toString()
+            val resident2 = binding.editNum2.text.toString()
 
 //        val dialog = AlertDialog.Builder(this)
 //
@@ -43,7 +43,7 @@ class join : AppCompatActivity() {
 //                Log.d(TAG, "다이얼로그")
 //            }
 //                    dialog.show()
-
+//          휴대전화 인증번호 인증 로직 구성 요망!
             when {
                 !id.isEmpty() ->
                     Toast.makeText(this, "아이디 오류 회원 가입 실패", Toast.LENGTH_SHORT).show()

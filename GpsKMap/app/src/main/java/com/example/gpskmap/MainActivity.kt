@@ -24,7 +24,7 @@ import androidx.core.content.ContextCompat.getSystemService
 import com.example.gpskmap.databinding.ActivityMainBinding
 import net.daum.mf.map.api.*
 
-////8
+////
 //val PERMISSIONS_REQUEST_CODE = 100
 //var REQUIRED_PERMISSIONS = arrayOf<String>( Manifest.permission.ACCESS_FINE_LOCATION)
 //
@@ -32,21 +32,156 @@ import net.daum.mf.map.api.*
 class MainActivity : AppCompatActivity() {
     private val ACCESS_FINE_LOCATION = 1000
 
-     private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
     val PERMISSIONS_REQUEST_CODE = 100
     var REQUIRED_PERMISSIONS = arrayOf<String>(Manifest.permission.ACCESS_FINE_LOCATION)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater);
-        setContentView(binding.root)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+        // 위치추적 버튼
+        binding.btnStart.setOnClickListener {
+            if (checkLocationService()) {
+                // GPS가 켜져있을 경우
+                permissionCheck()
+            } else {
+                // GPS가 꺼져있을 경우
+                Toast.makeText(this, "GPS를 켜주세요", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        // 추적중지 버튼
+        binding.btnStop.setOnClickListener {
+            stopTracking()
+        }
+    }
+
+    // 위치 권한 확인
+    private fun permissionCheck() {
+        val preference = getPreferences(MODE_PRIVATE)
+        val isFirstCheck = preference.getBoolean("isFirstPermissionCheck", true)
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // 권한이 없는 상태
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)) {
+                // 권한 거절 (다시 한 번 물어봄)
+                val builder = AlertDialog.Builder(this)
+                builder.setMessage("현재 위치를 확인하시려면 위치 권한을 허용해주세요.")
+                builder.setPositiveButton("확인") { dialog, which ->
+                    ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), ACCESS_FINE_LOCATION)
+                }
+                builder.setNegativeButton("취소") { dialog, which ->
+
+                }
+                builder.show()
+            } else {
+                if (isFirstCheck) {
+                    // 최초 권한 요청
+                    preference.edit().putBoolean("isFirstPermissionCheck", false).apply()
+                    ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), ACCESS_FINE_LOCATION)
+                } else {
+                    // 다시 묻지 않음 클릭 (앱 정보 화면으로 이동)
+                    val builder = AlertDialog.Builder(this)
+                    builder.setMessage("현재 위치를 확인하시려면 설정에서 위치 권한을 허용해주세요.")
+                    builder.setPositiveButton("설정으로 이동") { dialog, which ->
+                        val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:$packageName"))
+                        startActivity(intent)
+                    }
+                    builder.setNegativeButton("취소") { dialog, which ->
+
+                    }
+                    builder.show()
+                }
+            }
+        } else {
+            // 권한이 있는 상태
+            startTracking()
+        }
+    }
+
+    // 권한 요청 후 행동
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == ACCESS_FINE_LOCATION) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // 권한 요청 후 승인됨 (추적 시작)
+                Toast.makeText(this, "위치 권한이 승인되었습니다", Toast.LENGTH_SHORT).show()
+                startTracking()
+            } else {
+                // 권한 요청 후 거절됨 (다시 요청 or 토스트)
+                Toast.makeText(this, "위치 권한이 거절되었습니다", Toast.LENGTH_SHORT).show()
+                permissionCheck()
+            }
+        }
+    }
+
+    // GPS가 켜져있는지 확인
+    private fun checkLocationService(): Boolean {
+        val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
+    }
+
+    // 위치추적 시작
+    private fun startTracking() {
+        binding.mapView.currentLocationTrackingMode = MapView.CurrentLocationTrackingMode.TrackingModeOnWithMarkerHeadingWithoutMapMoving
+//        binding.mapView.currentLocationTrackingMode = MapView.CurrentLocationTrackingMode.TrackingModeOnWithoutHeading
+        val lm: LocationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+
+        val permissionCheck =
+            ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+        if (permissionCheck == PackageManager.PERMISSION_GRANTED) {
+            try {
+//                val userNowLocation = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)!!
+
+                val uLatitude = 37.4467912//userNowLocation.latitude
+                val uLongitude = 127.165324 //userNowLocation.longitude
+                val uNowPosition = MapPoint.mapPointWithGeoCoord(uLatitude, uLongitude)
+                binding.mapView.setMapCenterPoint(uNowPosition, true)
+                //    현 위치에 마커 찍기
+                val marker = MapPOIItem()
+                marker.itemName = "현 위치"
+                marker.mapPoint = uNowPosition
+                marker.markerType = MapPOIItem.MarkerType.BluePin
+                marker.selectedMarkerType = MapPOIItem.MarkerType.RedPin
+                binding.mapView.addPOIItem(marker)
+                //원 그리기
+                val circle1 = MapCircle(
+                    MapPoint.mapPointWithGeoCoord(uLongitude, uLatitude),  // center
+                    400,  // radius
+                    Color.argb(255, 0, 0, 0),  // strokeColor
+                    Color.argb(255, 255, 255, 255)
+                ) //fillcolor
+                circle1.tag = 1234
+                //지도뷰의 중심좌표와 줌레벨을 Circle이 모두 나오도록 조정.
+                val mapPointBoundsArray = arrayOf(circle1.bound,) //circle2.bound)
+                val mapPointBounds = MapPointBounds(mapPointBoundsArray)
+                val padding = 50 // px
+                binding.mapView.addCircle(circle1)
+            } catch (e: NullPointerException) {
+                   Log.e("LOCATION_ERROR", e.toString())
+
+
+
+            }            }
+
+    }
+
+    // 위치추적 중지
+    private fun stopTracking() {
+        binding.mapView.currentLocationTrackingMode = MapView.CurrentLocationTrackingMode.TrackingModeOff
+    }
+}
+
+//        binding = ActivityMainBinding.inflate(layoutInflater);
+//        setContentView(binding.root)
 //        val mapView = MapView(this)
 //        binding.clKakaoMapView.addView(mapView)
 
         //setContentView(R.layout.activity_main)
-        val mapView = MapView(this)
-        val mapViewContainer = binding.mapView
-        mapViewContainer.addView(mapView)
+//        val mapView = MapView(this)
+//        val mapViewContainer = binding.mapView
+//        mapViewContainer.addView(binding.mapView)
 //        val mapView = MapView(this)
 //        val mapViewContainer = map_view
 //        mapViewContainer.addView(mapView)
@@ -65,62 +200,66 @@ class MainActivity : AppCompatActivity() {
 //        } else {
 //            Toast.makeText(this, "GPS를 켜주세요", Toast.LENGTH_SHORT).show()
 //        }
-
-
-        val permissionCheck =
-            ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-        if (permissionCheck == PackageManager.PERMISSION_GRANTED) {
-            try {
-                mapView.currentLocationTrackingMode = MapView.CurrentLocationTrackingMode.TrackingModeOnWithoutHeading
-
-                val lm: LocationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
-                val userNowLocation: Location = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)!!
-                val uLatitude = 37.4467912//userNowLocation.latitude
-                val uLongitude = 127.165324//userNowLocation.longitude
-                val uNowPosition = MapPoint.mapPointWithGeoCoord(uLatitude, uLongitude)
-                mapView.setMapCenterPoint(uNowPosition, true)
-                //    현 위치에 마커 찍기
-                val marker = MapPOIItem()
-                marker.itemName = "현 위치"
-                marker.mapPoint = uNowPosition
-                marker.markerType = MapPOIItem.MarkerType.BluePin
-                marker.selectedMarkerType = MapPOIItem.MarkerType.RedPin
-                mapView.addPOIItem(marker)
-                //원 그리기
-                val circle1 = MapCircle(
-                    MapPoint.mapPointWithGeoCoord(uLongitude, uLatitude),  // center
-                    400,  // radius
-                    Color.argb(255, 0, 0, 0),  // strokeColor
-                    Color.argb(255, 255, 255, 255)
-                ) //fillcolor
-                circle1.tag = 1234
-                //지도뷰의 중심좌표와 줌레벨을 Circle이 모두 나오도록 조정.
-                val mapPointBoundsArray = arrayOf(circle1.bound,) //circle2.bound)
-                val mapPointBounds = MapPointBounds(mapPointBoundsArray)
-                val padding = 50 // px
-                mapView.addCircle(circle1)
-
-
-            } catch (e: NullPointerException) {
-                Log.e("LOCATION_ERROR", e.toString())
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                    ActivityCompat.finishAffinity(this)
-                } else {
-                    ActivityCompat.finishAffinity(this)
-                }
-
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-                System.exit(0)
-            }
-        } else {
-            Toast.makeText(this, "위치 권한이 없습니다.", Toast.LENGTH_SHORT).show()
-            ActivityCompat.requestPermissions(this, REQUIRED_PERMISSIONS, PERMISSIONS_REQUEST_CODE)
-        }
-    }
-
-
-
+//
+//
+//        val permissionCheck =
+//            ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+//        if (permissionCheck == PackageManager.PERMISSION_GRANTED) {
+//            try {
+//                binding.mapView.currentLocationTrackingMode =
+//                    MapView.CurrentLocationTrackingMode.TrackingModeOnWithoutHeading
+//
+//                val lm: LocationManager =
+//                    getSystemService(Context.LOCATION_SERVICE) as LocationManager
+//                val userNowLocation: Location =
+//                    lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)!!
+//                val uLatitude = userNowLocation.latitude
+//                val uLongitude = userNowLocation.longitude
+//                val uNowPosition = MapPoint.mapPointWithGeoCoord(uLatitude, uLongitude)
+//                binding.mapView.setMapCenterPoint(uNowPosition, true)
+//                //    현 위치에 마커 찍기
+//                val marker = MapPOIItem()
+//                marker.itemName = "현 위치"
+//                marker.mapPoint = uNowPosition
+//                marker.markerType = MapPOIItem.MarkerType.BluePin
+//                marker.selectedMarkerType = MapPOIItem.MarkerType.RedPin
+//                binding.mapView.addPOIItem(marker)
+//                //원 그리기
+//                val circle1 = MapCircle(
+//                    MapPoint.mapPointWithGeoCoord(uLongitude, uLatitude),  // center
+//                    400,  // radius
+//                    Color.argb(255, 0, 0, 0),  // strokeColor
+//                    Color.argb(255, 255, 255, 255)
+//                ) //fillcolor
+//                circle1.tag = 1234
+//                //지도뷰의 중심좌표와 줌레벨을 Circle이 모두 나오도록 조정.
+//                val mapPointBoundsArray = arrayOf(circle1.bound,) //circle2.bound)
+//                val mapPointBounds = MapPointBounds(mapPointBoundsArray)
+//                val padding = 50 // px
+//                binding.mapView.addCircle(circle1)
+//
+//
+//            } catch (e: NullPointerException) {
+//                Log.e("LOCATION_ERROR", e.toString())
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                    ActivityCompat.finishAffinity(this)
+//                } else {
+//                    ActivityCompat.finishAffinity(this)
+//                }
+//
+//                val intent = Intent(this, MainActivity::class.java)
+//                startActivity(intent)
+//                System.exit(0)
+//            }
+//        } else {
+//            Toast.makeText(this, "위치 권한이 없습니다.", Toast.LENGTH_SHORT).show()
+//            ActivityCompat.requestPermissions(this, REQUIRED_PERMISSIONS, PERMISSIONS_REQUEST_CODE)
+//        }
+//    }
+//}
+//
+//
+//
 
 //    //
 //
@@ -189,7 +328,7 @@ class MainActivity : AppCompatActivity() {
 //    return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
 //}
 /////////////////////////////////////여기 까지 원래 코드 였############################333333333333333333333
-}
+
 
 
 // 이건 아님
@@ -245,6 +384,7 @@ class MainActivity : AppCompatActivity() {
 //            super.onDestroy()
 //            stopTracking()
 //        }
+
 
 
 

@@ -15,7 +15,7 @@
     </item>
     <!-- 클릭했을 때 -->
     <item android:state_pressed="true">
-    <shape>ㄴ
+    <shape>
     <!-- 배경 -->
     <solid android:color="#ff000000" />
     <!-- 테두리 -->

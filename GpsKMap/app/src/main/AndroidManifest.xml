@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.gpskmap">
-
-    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
@@ -15,6 +14,15 @@
         android:theme="@style/Theme.GpsKMap"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".intro"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".terms_check"
             android:exported="false" />
         <activity
@@ -24,7 +32,10 @@
         <!-- android:exported="true" /> -->
         <activity
             android:name=".login"
-            android:exported="true" /> <!-- <activity -->
+            android:exported="true">
+
+        </activity>
+        <!-- <activity -->
         <!-- android:name=   ".ui.login.LoginActivity" -->
         <!-- android:exported="true" -->
         <!-- android:label="@string/title_activity_login" /> -->
@@ -37,16 +48,11 @@
 
         <meta-data
             android:name="com.kakao.sdk.AppKey"
-            android:value=" " />
+            android:value="98c59b46a80107250e6bcab84ca06841" />
 
         <activity
             android:name=".MainActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

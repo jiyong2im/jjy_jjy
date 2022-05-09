@@ -6,4 +6,144 @@
     android:layout_height="match_parent"
     tools:context=".terms_check">
 
+    <CheckBox
+        android:id="@+id/all_checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="148dp"
+        android:buttonTint="#3366ff "
+        android:fontFamily="@font/bmhannaair_otf"
+        android:text="    전체동의"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <CheckBox
+        android:id="@+id/checkBox3"
+        android:layout_width="284dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="36dp"
+        android:buttonTint="#f86d4a "
+        android:fontFamily="@font/bmhannaair_otf"
+        android:text="    전자금융 거래 이용약관"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.081"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox2"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="231dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="60dp"
+        android:buttonTint="#f86d4a "
+        android:fontFamily="@font/bmhannaair_otf"
+        android:text="    밥세권 이용약관"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.06"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/all_checkBox" />
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="53dp"
+        android:layout_marginTop="24dp"
+        android:buttonTint="#f86d4a "
+        android:fontFamily="@font/bmhannaair_otf"
+        android:text="    개인정보 제3자 활용 동의"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.092"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox1"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="117dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/button_terms_check"
+        android:fontFamily="@font/bmhanna_11yrs_otf"
+        android:text="자세히보기"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/checkBox2"
+        app:layout_constraintTop_toBottomOf="@+id/button5" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="117dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="240dp"
+        android:background="@drawable/button_terms_check"
+        android:fontFamily="@font/bmhanna_11yrs_otf"
+        android:text="자세히보기"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.863"
+        app:layout_constraintStart_toEndOf="@+id/checkBox1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="117dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/button_terms_check"
+        android:fontFamily="@font/bmhanna_11yrs_otf"
+        android:text="자세히보기"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/checkBox3"
+        app:layout_constraintTop_toBottomOf="@+id/button4" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/bmdohyeon_otf"
+        android:text="약관동의"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="178dp"
+        android:layout_height="66dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/button12"
+        android:fontFamily="@font/bmhanna_11yrs_otf"
+        android:text="동의"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button11"
+        android:layout_width="178dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/button13"
+        android:fontFamily="@font/bmhanna_11yrs_otf"
+        android:text="동의하지 않음"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
